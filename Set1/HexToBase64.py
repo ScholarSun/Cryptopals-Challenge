@@ -1,25 +1,9 @@
 import base64
-import binascii
-import BreakSingleByteXor import score_val
+from .BreakSingleByteXor import *
 
 def hex_to_base64(s):
     byte_seq = binascii.unhexlify(s)
     return base64.b64encode(byte_seq)
-
-def detect_xor():
-    file = open("Data/cryptoxorinputs.txt", "r")
-    highscore = 0
-    bestline = ""
-    for line in file:
-        if len(line)%2 == 0:
-            break
-        plaintext = single_byte_xor_cipher(line[:-3])
-        #print(plaintext)
-        score = score_val('','',plaintext,True)
-        if score > highscore:
-            highscore = score
-            bestline = plaintext
-    print (bestline)
 
 def apply_xor(char,key_inc,key):
     if key_inc[0] == len(key):
@@ -102,14 +86,8 @@ def break_repeating_xor(ciphertext):
 #input = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
 #print(hex_to_base64(input))
 
-# Fixed xor test
-#input1 = "1c0111001f010100061a024b53535009181c"
-#input2 = "686974207468652062756c6c277320657965"
-#print(fixed_xor(input1,input2))
 
-# Single byte xor test
-#inputerino = "3323282f2c2132"
-#print(single_byte_xor_cipher(inputerino))
+
 
 # Detect_xor
 #detect_xor()
