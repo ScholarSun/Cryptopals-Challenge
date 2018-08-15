@@ -1,4 +1,4 @@
-from .BreakSingleByteXor import score_val,single_byte_xor_cipher
+from Set1.BreakSingleByteXor import score_val,single_byte_xor_cipher
 
 # Given the file, detects the line that has been XOR ciphered
 def detect_xor():
@@ -13,7 +13,7 @@ def detect_xor():
             break
 
         # Truncates to remove \n characters
-        plaintext = single_byte_xor_cipher(line[:-3])
+        plaintext = single_byte_xor_cipher(line[:-3])[0]
 
         # Scores
         score = score_val('','',plaintext,True)
@@ -24,5 +24,4 @@ def detect_xor():
 
 def main():
     print(detect_xor())
-
-main()
+    assert(detect_xor() == "Now that the party is jumping")

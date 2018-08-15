@@ -5,19 +5,6 @@ def hex_to_base64(s):
     byte_seq = binascii.unhexlify(s)
     return base64.b64encode(byte_seq)
 
-def apply_xor(char,key_inc,key):
-    if key_inc[0] == len(key):
-        key_inc[0] = 0
-    #print(char)
-    #print(key[key_inc[0]])
-    xored = ord(char)^ord(key[key_inc[0]])
-    key_inc[0]+=1
-    return xored
-
-def repeating_key_xor(s,key):
-    key_inc = [0]
-    encrypted = binascii.hexlify(bytearray([apply_xor(x,key_inc,key) for x in s]))
-    return encrypted
 
 def hamming_distance(seq1,seq2):
     distance = 0
