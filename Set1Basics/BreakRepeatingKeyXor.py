@@ -1,6 +1,6 @@
 import base64
-from Set1.BreakSingleByteXor import *
-from Set1.RepeatingKeyXor import *
+from Set1Basics.BreakSingleByteXor import *
+from Set1Basics.RepeatingKeyXor import *
 
 # Possible combinations for key size calculation
 key_combo = [[0, 1, 1, 2], [0, 1, 2, 3], [0, 1, 3, 4], [1, 2, 2, 3], [1, 2, 3, 4], [2, 3, 3, 4]]

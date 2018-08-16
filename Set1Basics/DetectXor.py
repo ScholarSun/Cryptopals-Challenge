@@ -1,4 +1,4 @@
-from Set1.BreakSingleByteXor import score_val, single_byte_xor_cipher
+from Set1Basics.BreakSingleByteXor import *
 
 
 # Given the file, detects the line that has been XOR ciphered
